@@ -27,27 +27,16 @@ public static void main(String[] args) throws IOException{
 	}
 
 
-private int getTotalNumberVotes() {
-	int voteCounter = 0;
-	for(Candidate nextCandidate: candidateList) {
-		voteCounter = voteCounter + nextCandidate.getTotalVotes();
-	}
-	
-	return voteCounter;
-	
-}
-
-private double getVotePercentage() {
-	return calculateWinnerVotes() / getTotalNumberVotes();
-}
 
 
-private int calculateWinnerVotes() {
-	    System.out.println("The votes have been counted and the results are as follows");
+
+
+
+private void calculateWinnerVotes() {
+	    
 		Candidate candidate = candidateList.get(0);
-		System.out.println(candidate.getCandidateName() + "Votes: " + candidate.getTotalVotes());
 		for(Candidate nextCandidate: candidateList) {
-			System.out.println(nextCandidate.getCandidateName() + "Votes: " + nextCandidate.getTotalVotes());
+			System.out.println(nextCandidate.getCandidateName() + "'s Votes: " + nextCandidate.getTotalVotes());
 		}
 		
 		for(Candidate adjacentCandidate: candidateList) {
@@ -55,10 +44,11 @@ private int calculateWinnerVotes() {
 			if(adjacentCandidate.getTotalVotes() > candidate.getTotalVotes()) {
 				candidate = adjacentCandidate;
 			}
-			// the value held in candidate now will contain the candidate with the highest votes
-			System.out.println("Therefore, with " + getVotePercentage()  + "% of the votes, candidate " + candidate.getCandidateName() + " has been elected as the MP for East Kilbride.");
-			}
-		return candidate.getTotalVotes();
+			
+			
+		}
+		System.out.println();
+		System.out.println("The winner with the most votes is " + candidate.getCandidateName() + ".");
 		}
 		
 		
